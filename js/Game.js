@@ -24,30 +24,7 @@ class Game {
         const randomIndex = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[randomIndex];
     }
-    /**
-     * Resets the gameBoard by:
-     * - Removing all letter placeholders from the phrase display
-     * - Resetting the onscreen keyboard buttons
-     * - Resetting the player's lives (hearts)
-     */
-    resetGameBoard() {
-        // Remove all li elements from the Phrase ul element
-        const phraseUl = document.querySelector('#phrase ul');
-        phraseUl.innerHTML = ''; // Clears the current phrase
-
-        // Reset all onscreen keyboard buttons
-        const keys = document.querySelectorAll('#qwerty button');
-        keys.forEach((key) => {
-            key.className = 'key'; // Set each button back to the 'key' class
-            key.disabled = false; // Enable all buttons
-        });
-
-        // Reset the hearts (lives) to liveHeart.png
-        const hearts = document.querySelectorAll('.tries img');
-        hearts.forEach((heart) => {
-            heart.src = 'images/liveHeart.png'; // Restore each heart to the live heart image
-        });
-    }
+    
     /**
      * Starts the game by hiding the start screen, selecting a random phrase, 
      * and displaying it on the board.
@@ -56,7 +33,6 @@ class Game {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none'; // Hide start screen
 
-        this.resetGameBoard(); // Reset the gameBoard before starting a new game
         this.activePhrase = this.getRandomPhrase(); // Get a random phrase
         this.activePhrase.addPhraseToDisplay(); // Display the phrase on the board
     }
