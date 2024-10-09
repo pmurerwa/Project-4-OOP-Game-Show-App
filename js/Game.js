@@ -16,6 +16,7 @@ class Game {
         this.activePhrase = null; // The phrase currently in play
     }
     
+
     /**
      * Selects a random phrase from the phrases array and returns it.
      * @returns {Object} Phrase object chosen to be used.
@@ -25,6 +26,7 @@ class Game {
         return this.phrases[randomIndex];
     }
     
+
     /**
      * Starts the game by hiding the start screen, selecting a random phrase, 
      * and displaying it on the board.
@@ -32,10 +34,10 @@ class Game {
     startGame() {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none'; // Hide start screen
-
         this.activePhrase = this.getRandomPhrase(); // Get a random phrase
         this.activePhrase.addPhraseToDisplay(); // Display the phrase on the board
     }
+
     /**
      * Checks if the player has revealed all the letters in the phrase.
      * @returns {boolean} - True if the player has won, false otherwise.
